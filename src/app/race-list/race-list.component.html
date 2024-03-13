@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Race Schedule</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="yearSelect">Select Year:</label>
+        <select class="form-control" id="yearSelect" [(ngModel)]="selectedSeason" (change)="onSelectYear(selectedSeason)">
+          <option *ngFor="let season of seasons" [value]="season.season">{{ season.season }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="race-grid">
+    <ng-container *ngIf="!isDataLoading">
+      <div class="race-card" *ngFor="let race of races">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ race.raceName }}</h5>
+            <p class="card-text">Season: {{ race.season }}</p>
+            <p class="card-text">Round: {{ race.round }}</p>
+            <a routerLink="/race-details/{{ race.season }}/{{ race.round }}" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    
+    <div class="alert alert-info mt-3" *ngIf="isDataLoading">{{ errorMessage ? errorMessage : 'Fetching Data, Please wait...' }}</div>
+  </div>
+</div>
+ 

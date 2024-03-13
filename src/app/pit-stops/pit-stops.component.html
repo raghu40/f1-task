@@ -1,0 +1,7 @@
+<div *ngIf="displayPitData else noLapData">
+    <h2 id="selection1">Pit Stops</h2>
+    <app-race-visualization [displayData]="displayPitData" [xAxisLabelText]="'Lap Number'" [yAxisLabelText]="'Pit Stop Duration (seconds)'"></app-race-visualization>
+</div>
+<ng-template #noLapData>
+    <div class="alert alert-info mt-3">No Pit Data</div>
+  </ng-template>

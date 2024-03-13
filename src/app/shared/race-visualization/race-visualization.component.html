@@ -1,0 +1,24 @@
+<div *ngIf="displayData.length > 0 else noDataAvaliable">
+    <ngx-charts-line-chart
+     
+      [view]="[800, 400]"
+      [scheme]="colorScheme"
+      [results]="displayData"
+      [gradient]="false"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      xAxisLabel= {{xAxisLabelText}}
+      yAxisLabel={{yAxisLabelText}}
+      (select)="onChartSelect($event)">
+    </ngx-charts-line-chart>
+  </div>
+  <ng-template #noDataAvaliable>
+    <div class="alert alert-info mt-3">Chart Data not available</div>
+  </ng-template>
+  
+  
+    
+  
