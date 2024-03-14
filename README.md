@@ -16,7 +16,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ##  Run Application in Docker Command
 
-# Prerequisites
+## Prerequisites
 (1) Intsall Node JS
 (2) Install Docker Desktop
 
