@@ -10,18 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { LapTimesComponent } from './lap-times/lap-times.component';
-import { PitStopsComponent } from './pit-stops/pit-stops.component';
+
+import { RaceDetailsModule } from './race-details/race-details.module';
+import { RaceDetailsRoutingModule } from './race-details/race-details-routing.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RaceListComponent,
-    RaceDetailsComponent,
-    RaceVisualizationComponent,
-    LapTimesComponent,
-    PitStopsComponent,
-  ],
+  declarations: [AppComponent, RaceListComponent, RaceDetailsComponent],
   imports: [
     BrowserModule,
     NoopAnimationsModule,
@@ -29,6 +23,8 @@ import { PitStopsComponent } from './pit-stops/pit-stops.component';
     HttpClientModule,
     FormsModule,
     NgxChartsModule,
+    RaceDetailsModule,
+    RaceDetailsRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

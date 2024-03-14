@@ -1,0 +1,53 @@
+.card {
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table {
+    margin-bottom: 0; /* Remove default bottom margin to avoid extra space */
+  }
+  
+  .table th,
+  .table td {
+    vertical-align: middle; /* Center table cells vertically */
+  }
+  
+  .table th {
+    background: linear-gradient(135deg, #D1E7E0, #F1ECE3);
+    color: #333;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background: linear-gradient(135deg, #F1ECE3, #D1E7E0, rgba(0,0,0,0)); /* Alternate row color */
+  }
+  
+  .btn-primary {
+    background-color: #F1ECE3;
+    border-color: #F1ECE3;
+    border-radius: 20px;
+    padding: 8px 16px;
+    color: #333;
+  }
+  
+  .btn-primary:hover {
+    background-color: #D1E7E0;
+    border-color: #D1E7E0;
+  }
+  
+  .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(209, 231, 224, 0.5);
+  }
+
+  .anchor {
+    color:black;
+    font-size: 15px;
+    background-color: lightgray;
+    margin: 10px;
+ }
+
+.anchor:hover {
+    background-color: white;
+    color: red;
+ }
+  

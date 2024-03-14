@@ -1,0 +1,45 @@
+
+<div class="container" *ngIf="sessionDetails else loadindData">
+    
+    <h2>Qualifying Results</h2>
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="raceDetails" class="table table-bordered table-striped table-hover text-center">
+            <thead>
+              <tr>
+                <th class="text-center">Position</th>
+                <th class="text-center">No</th>
+                <th class="text-center">Driver Name</th>
+                <th class="text-center">Constructor</th>
+                <th class="text-center">Q1 Time</th>
+                <th class="text-center">Q2 Time</th>
+                 
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr *ngFor="let sessionDetail of sessionDetails.QualifyingResults">
+                <td>{{ sessionDetail.position}}</td>
+                <td>{{sessionDetail.number}}</td>
+                <td><a href="{{ sessionDetail.Driver.url}}" target="_blank">{{ sessionDetail.Driver.givenName }} {{ sessionDetail.Driver.familyName }}</a></td>
+                <td><a href="{{ sessionDetail.Constructor.url}}" target="_blank">{{sessionDetail.Constructor.name}}</a></td>
+                <td>{{sessionDetail.Q1}}</td>
+                <td>{{sessionDetail.Q2}}</td>
+               
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #noDataAvaliable>
+          <div class="alert alert-info">NO Data available</div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <ng-template #loadindData>
+    <div class="alert alert-info mt-3">Fetching Data, Please wait...</div>
+  </ng-template>
+  
+  <router-outlet></router-outlet>
+  

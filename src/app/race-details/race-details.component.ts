@@ -22,29 +22,12 @@ export class RaceDetailsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.getRaceDetails();
-  }
-
-  getRaceDetails(): void {
     const yearParam = this.route.snapshot.paramMap.get('year');
     const roundParam = this.route.snapshot.paramMap.get('round');
     this.loadindData = true;
     if (yearParam && roundParam) {
       this.year = +yearParam;
       this.round = +roundParam;
-
-      this.raceService.getRaceDetails(this.year, this.round).subscribe(
-        (data: ErgastApiResponse) => {
-          console.log(data.MRData.RaceTable.Races[0]);
-          this.raceDetails = data.MRData.RaceTable.Races[0];
-          this.loadindData = false;
-        },
-        (error) => {
-          this.loadindData = false;
-        }
-      );
-    } else {
-      console.error('Year and round parameters are missing.');
     }
   }
 }

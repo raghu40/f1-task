@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  angular-app:
+    build: .
+    container_name: Aston-Martin
+    ports:
+      - "4200:4200"
+    restart: always

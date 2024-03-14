@@ -1,0 +1,7 @@
+<div *ngIf="lapTimesData else noLapData">
+   <h2>Lap Time Graph</h2> 
+    <app-race-visualization [displayData]="lapTimesData" [xAxisLabelText]="'Driver Name'" [yAxisLabelText]="'Lap Time (milliseconds)'"></app-race-visualization>
+</div>
+<ng-template #noLapData>
+    <div class="alert alert-info mt-3">No Lap Time Data</div>
+</ng-template>

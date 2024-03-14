@@ -1,51 +1,20 @@
 
-<div class="container" *ngIf="raceDetails else loadindData">
-  <nav class="navbar navbar-reverse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a class="anchor" [routerLink]="['/']">Race Schedule</a></li>
-      <li><a class="anchor" [routerLink]="['/race-details',year,round,'pit-stops']" fragment="selection1">Pit Stop</a></li>
-    </ul>
-  </nav>
-  <h2>{{ raceDetails.raceName }} - Round {{ raceDetails.round }}</h2>
-  <div class="card">
-    <div class="card-body">
-      <div class="table-responsive">
-        <table id="raceDetails" class="table table-bordered table-striped table-hover text-center">
-          <thead>
-            <tr>
-              <th class="text-center">Position</th>
-              <th class="text-center">No</th>
-              <th class="text-center">Driver Name</th>
-              <th class="text-center">Constructor</th>
-              <th class="text-center">Laps</th>
-              <th class="text-center">Grid</th>
-              <th class="text-center">Status</th>
-              <th class="text-center">Points</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            <tr *ngFor="let raceDetail of raceDetails.Results">
-              <td>{{ raceDetail.positionText == 'R' ? 'Ret' : raceDetail.positionText}}</td>
-              <td>{{raceDetail.number}}</td>
-              <td><a href="{{ raceDetail.Driver.url}}" target="_blank">{{ raceDetail.Driver.givenName }} {{ raceDetail.Driver.familyName }}</a></td>
-              <td><a href="{{ raceDetail.Constructor.url}}" target="_blank">{{raceDetail.Constructor.name}}</a></td>
-              <td><a [routerLink]="['/lap-time',year,round,raceDetail.Driver.driverId]">{{raceDetail.laps}}</a></td>
-              <td>{{raceDetail.grid}}</td>
-              <td>{{ raceDetail.status}}</td>
-              <td>{{raceDetail.points > '0' ? raceDetail.points : '-' }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <ng-template #noDataAvaliable>
-        <div class="alert alert-info">NO Data available</div>
-      </ng-template>
-    </div>
-  </div>
-</div>
-<ng-template #loadindData>
-  <div class="alert alert-info mt-3">Fetching Data, Please wait...</div>
-</ng-template>
+<nav class="navbar navbar-reverse">
+  <ul class="nav navbar-nav">
+    <li><a class="anchor" [routerLink]="['/']">Race Schedule</a></li>
+    <li><a class="anchor" [routerLink]="['/race-details',year,round]" routerLinkActive="active">Race Data</a></li>
+    <li><a class="anchor" [routerLink]="['/race-details',year,round,'pit-stops']" routerLinkActive="active">Pit Stop</a></li>
+    <li><a class="anchor" [routerLink]="['/race-details',year,round,'lap-times']" routerLinkActive="active">Lap Times</a></li>
+    <li><a class="anchor" [routerLink]="['/race-details',year,round,'session-results']" routerLinkActive="active">Session Results</a></li>
+  </ul>
+</nav>
 
-<router-outlet></router-outlet>
+<div>
+  <!-- Main content area -->
+  <router-outlet></router-outlet>
+</div>
+
+<div>
+  <!-- Auxiliary content area -->
+  <router-outlet name="details"></router-outlet>
+</div>

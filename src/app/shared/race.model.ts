@@ -44,6 +44,7 @@ export interface Race {
   Results?: RaceResult[];
   Laps?: Lap[];
   PitStops?: pitStop[];
+  QualifyingResults:qualifyResult[]
 }
 
 export interface pitStop {
@@ -123,6 +124,13 @@ export interface RaceResult {
   Time: Time;
   FastestLap: FastestLap;
 }
+
+export interface qualifyResult extends RaceResult {
+  Q1: string;
+  Q2:string;
+  Q3:string;
+}
+
 
 export interface Timing {
   driverId: string;
